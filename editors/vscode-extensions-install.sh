@@ -1,0 +1,15 @@
+code --install-extension arcticicestudio.nord-visual-studio-code
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension christian-kohler.path-intellisense
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension eamodio.gitlens
+code --install-extension EditorConfig.EditorConfig
+code --install-extension eg2.vscode-npm-script
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension msjsdiag.debugger-for-chrome
+code --install-extension Prisma.vscode-graphql
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension walter-ribeiro.full-react-snippets
+code --install-extension wix.vscode-import-cost
+code --install-extension xabikos.JavaScriptSnippets

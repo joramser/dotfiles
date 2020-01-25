@@ -1,0 +1,15 @@
+[user]
+	email = jramirezserrato@gmail.com
+	name = Jorge Ramírez Serrato
+[pull]
+	rebase = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	amend = commit --amend --no-edit
+[core]
+	editor = code --wait
+[credential]
+	helper = osxkeychain
