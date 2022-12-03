@@ -1,18 +1,18 @@
 {
-  "//": "Jan 2020",
+  "//": "Dec 2022",
+  "workbench.colorTheme": "Night Owl",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Nord",
-  "editor.fontSize": 14,
-  "editor.fontFamily": "Jetbrains Mono, Fira Code, Menlo",
+  "editor.fontSize": 13,
+  "editor.fontFamily": "Jetbrains Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
+  "editor.bracketPairColorization.enabled": true,
   "editor.rulers": [
     80,
     100,
     120
   ],
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
-  "emmet.triggerExpansionOnTab": true
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
