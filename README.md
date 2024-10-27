@@ -1,3 +1,3 @@
 # dotfiles
 
-Dotfiles and configuration files for different purposes.
+Dotfiles and configuration files for different setups and tools.
