@@ -9,6 +9,7 @@
 	ci = commit
 	st = status
 	amend = commit --amend --no-edit
+	up = push -u origin HEAD
 [core]
 	editor = code --wait
 [credential]
