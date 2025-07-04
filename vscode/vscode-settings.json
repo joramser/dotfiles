@@ -12,10 +12,9 @@
     100,
     120
   ],
-  "editor.snippetSuggestions": "top",
+  "editor.snippetSuggestions": "inline",
   "editor.linkedEditing": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.sortImports": "explicit"
+    "source.fixAll.eslint": "explicit"
   }
 }
