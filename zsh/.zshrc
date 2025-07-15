@@ -23,7 +23,7 @@ eval "$(fzf --zsh)"
 [ -s "/Users/jorge/.bun/_bun" ] && source "/Users/jorge/.bun/_bun"
 
 # Eza
-alias ls="eza --icons=always --oneline"
+alias ls="eza --almost-all --icons=always --oneline"
 
 # fzf
 alias f="fzf --height=60% --layout=reverse --border --preview 'bat --color=always {}'"

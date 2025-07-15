@@ -2,8 +2,9 @@
 
 ## Config files
 
-ln -sf $(pwd)/zsh/.zshrc ~/.zshrc
-ln -sf $(pwd)/git/.gitconfig ~/.git
+mkdir -p ~/.zsh && ln -sf $(pwd)/zsh/.zshrc ~/.zshrc
+mkdir -p ~/.git && ln -sf $(pwd)/git/.gitconfig ~/.git
+mkdir -p ~/.config/aerospace && ln -sf $(pwd)/tools/aerospace.toml ~/.aerospace.toml
 
 ## Editors
 
