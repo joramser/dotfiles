@@ -1,7 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
-
 plugins=(
   git
   z
@@ -17,3 +15,12 @@ export NVM_DIR="$HOME/.nvm"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+eval "$(starship init zsh)"
+eval "$(fzf --zsh)"
+
+# bun completions
+[ -s "/Users/jorge/.bun/_bun" ] && source "/Users/jorge/.bun/_bun"
+
+# Eza
+alias ls="eza --icons=always --oneline"
