@@ -24,3 +24,6 @@ eval "$(fzf --zsh)"
 
 # Eza
 alias ls="eza --icons=always --oneline"
+
+# fzf
+alias f="fzf --height=60% --layout=reverse --border --preview 'bat --color=always {}'"
