@@ -1,0 +1,5 @@
+theme = rose-pine
+background-opacity = 0.8
+background-blur = 20
+window-padding-x = 8
+window-padding-y = 8

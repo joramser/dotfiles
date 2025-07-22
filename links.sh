@@ -4,7 +4,9 @@
 
 mkdir -p ~/.zsh && ln -sf $(pwd)/zsh/.zshrc ~/.zshrc
 mkdir -p ~/.git && ln -sf $(pwd)/git/.gitconfig ~/.git
-mkdir -p ~/.config/aerospace && ln -sf $(pwd)/tools/aerospace.toml ~/.aerospace.toml
+
+mkdir -p ~/.config/aerospace && ln -sf $(pwd)/.config/aerospace/aerospace.toml ~/.config/aerospace/aerospace.toml
+mkdir -p ~/.config/ghostty && ln -sf $(pwd)/.config/ghostty/config ~/.config/ghostty/config
 
 ## Editors
 

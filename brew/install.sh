@@ -11,4 +11,4 @@ brew install eza
 # Casks
 
 brew install visual-studio-code
-brew install iterm2
+brew install ghostty
