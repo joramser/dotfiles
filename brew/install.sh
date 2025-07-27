@@ -3,6 +3,8 @@ brew install nvm
 brew install zsh-autosuggestions
 brew install zsh-fast-syntax-highlighting
 
+brew install tmux
+brew install tpm
 brew install starship
 brew install bat
 brew install fzf

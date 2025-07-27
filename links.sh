@@ -7,6 +7,7 @@ mkdir -p ~/.git && ln -sf $(pwd)/git/.gitconfig ~/.git
 
 mkdir -p ~/.config/aerospace && ln -sf $(pwd)/.config/aerospace/aerospace.toml ~/.config/aerospace/aerospace.toml
 mkdir -p ~/.config/ghostty && ln -sf $(pwd)/.config/ghostty/config ~/.config/ghostty/config
+mkdir -p ~/.config/tmux && ln -sf $(pwd)/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 
 ## Editors
 
