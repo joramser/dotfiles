@@ -3,7 +3,7 @@
 ## Config files
 
 mkdir -p ~/.zsh && ln -sf $(pwd)/zsh/.zshrc ~/.zshrc
-mkdir -p ~/.git && ln -sf $(pwd)/git/.gitconfig ~/.git
+mkdir -p ~/.git && ln -sf $(pwd)/git/.gitconfig ~/.gitconfig
 
 mkdir -p ~/.config/aerospace && ln -sf $(pwd)/.config/aerospace/aerospace.toml ~/.config/aerospace/aerospace.toml
 mkdir -p ~/.config/ghostty && ln -sf $(pwd)/.config/ghostty/config ~/.config/ghostty/config
