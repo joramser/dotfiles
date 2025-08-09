@@ -27,16 +27,23 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64 "{enabled = 0;}" # Disable Spotlight
 
 ## Trackpad
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
 defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -bool true
 
 ## Control Center
 defaults write com.apple.controlcenter.plist BatteryShowPercentage -bool true
+
+# Safari
+defaults write com.apple.Safari WebKitDeveloperExtras -bool true
 
 killall SystemUIServer
 killall Dock
 killall Finder
 killall ControlCenter
+killall Safari
