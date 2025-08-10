@@ -5,3 +5,4 @@ window-padding-x = 8
 window-padding-y = 8
 auto-update = download
 macos-icon = paper
+macos-titlebar-style = hidden
