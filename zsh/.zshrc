@@ -8,6 +8,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.bun/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -20,7 +21,7 @@ eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 
 # bun completions
-[ -s "/Users/jorge/.bun/_bun" ] && source "/Users/jorge/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Eza
 alias ls="eza --almost-all --icons=always --oneline"
