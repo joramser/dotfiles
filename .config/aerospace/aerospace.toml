@@ -235,10 +235,6 @@ if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'com.brave.Browser'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
 if.app-id = 'com.apple.Safari'
 run = 'move-node-to-workspace 2'
 
@@ -247,7 +243,7 @@ if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'com.apple'
+if.app-name-regex-substring = 'Mail|Messages|Notes|Reminders'
 run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
@@ -255,7 +251,11 @@ if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Passwords'
+if.app-id = 'com.spotify.Music'
+run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Passwords|Terminal'
 run = 'layout floating'
 
 [[on-window-detected]]
