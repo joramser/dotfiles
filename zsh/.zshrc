@@ -2,7 +2,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 plugins=(
   git
-  z
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -28,3 +27,6 @@ alias ls="eza --almost-all --icons=always --oneline"
 
 # fzf
 alias f="fzf --height=60% --layout=reverse --border --preview 'bat --color=always {}'"
+
+# Zoxide
+eval "$(zoxide init zsh)"
