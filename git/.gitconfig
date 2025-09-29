@@ -10,6 +10,7 @@
 	st = status
 	amend = commit --amend --no-edit
 	up = push -u origin HEAD
+	staged = diff --cached . ':(exclude)*lock*'
 [core]
 	editor = code --wait
 [credential]
