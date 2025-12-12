@@ -12,6 +12,7 @@ brew install bat
 brew install fzf
 brew install eza
 brew install gh
+brew install zoxide
 
 # Casks
 
@@ -19,6 +20,5 @@ brew install visual-studio-code
 brew install ghostty
 brew install raycast
 brew install --cask nikitabobko/tap/aerospace
-brew install appcleaner
 
 brew install font-jetbrains-mono-nerd-font
