@@ -12,3 +12,4 @@ mkdir -p ~/.config/tmux && ln -sf $(pwd)/.config/tmux/tmux.conf ~/.config/tmux/t
 ## Editors
 
 ln -sf $(pwd)/vscode/vscode-settings.json ~/Library/"Application Support"/Code/User/settings.json
+mkdir -p ~/.config/zed && ln -sf $(pwd)/.config/zed/settings.json ~/.config/zed/settings.json

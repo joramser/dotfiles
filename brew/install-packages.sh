@@ -20,5 +20,7 @@ brew install visual-studio-code
 brew install ghostty
 brew install raycast
 brew install --cask nikitabobko/tap/aerospace
+brew install zed
+brew install homerow
 
 brew install font-jetbrains-mono-nerd-font
