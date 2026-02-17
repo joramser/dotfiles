@@ -27,5 +27,8 @@ alias ls="eza --almost-all --icons=always --oneline"
 # fzf
 alias f="fzf --height=60% --layout=reverse --border --preview 'bat --color=always {}'"
 
+# tmux
+alias tmx="tmux new-session -A -s default"
+
 # Zoxide
 eval "$(zoxide init zsh)"
