@@ -4,8 +4,7 @@ plugins=(
   git
 )
 
-source $ZSH/oh-my-zsh.sh
-
+export PATH="$HOME/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
 

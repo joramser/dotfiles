@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+
+# wss — tmux workspace launcher (session mode)
+# Usage: wss <folder> [right-pane-command]
+
+if [[ -z "$1" ]]; then
+  echo "Usage: wss <folder> [command]"
+  echo "  folder   zoxide query to resolve project path"
+  echo "  command  right pane command (default: claude)"
+  exit 1
+fi
+
+dir=$(zoxide query "$1" 2>/dev/null)
+if [[ $? -ne 0 || -z "$dir" ]]; then
+  echo "Error: zoxide found no match for '$1'"
+  exit 1
+fi
+
+name=$(basename "$dir")
+cmd="${2:-claude}"
+
+# Check if session already exists — switch to it
+if tmux has-session -t "$name" 2>/dev/null; then
+  if [[ -n "$TMUX" ]]; then
+    tmux switch-client -t "$name"
+  else
+    tmux attach-session -t "$name"
+  fi
+  exit 0
+fi
+
+tmux new-session -d -s "$name" -c "$dir"
+tmux split-window -h -t "$name" -c "$dir" "$cmd"
+tmux select-pane -t "$name:1.{left}"
+
+if [[ -n "$TMUX" ]]; then
+  tmux switch-client -t "$name"
+else
+  tmux attach-session -t "$name"
+fi

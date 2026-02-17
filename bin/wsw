@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+
+# wsw — tmux workspace launcher (window mode)
+# Usage: wsw <folder> [right-pane-command]
+
+if [[ -z "$1" ]]; then
+  echo "Usage: wsw <folder> [command]"
+  echo "  folder   zoxide query to resolve project path"
+  echo "  command  right pane command (default: claude)"
+  exit 1
+fi
+
+if [[ -z "$TMUX" ]]; then
+  echo "Error: not inside a tmux session"
+  exit 1
+fi
+
+dir=$(zoxide query "$1" 2>/dev/null)
+if [[ $? -ne 0 || -z "$dir" ]]; then
+  echo "Error: zoxide found no match for '$1'"
+  exit 1
+fi
+
+name=$(basename "$dir")
+cmd="${2:-claude}"
+
+# Check if window name already exists
+if tmux list-windows -F '#{window_name}' | grep -qx "$name"; then
+  tmux select-window -t "$name"
+  exit 0
+fi
+
+tmux new-window -n "$name" -c "$dir"
+tmux split-window -h -t "$name" -c "$dir" "$cmd"
+tmux select-pane -t "$name.{left}"
