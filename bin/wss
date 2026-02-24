@@ -32,6 +32,7 @@ fi
 tmux new-session -d -s "$name" -c "$dir"
 tmux split-window -h -t "$name" -c "$dir" "$cmd"
 tmux select-pane -t "$name:1.{left}"
+tmux send-keys -t "$name:1.{left}" "fastfetch" Enter
 
 if [[ -n "$TMUX" ]]; then
   tmux switch-client -t "$name"
