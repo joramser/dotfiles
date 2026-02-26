@@ -10,7 +10,8 @@ mkdir -p ~/.config/ghostty && ln -sf $(pwd)/.config/ghostty/config ~/.config/gho
 mkdir -p ~/.config/tmux && ln -sf $(pwd)/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 
 ## Editors
-
+ln -sf $(pwd)/vscode/vscode-settings.json ~/Library/"Application Support"/Code/User/settings.json
+mkdir -p ~/.config/zed && ln -sf $(pwd)/.config/zed/settings.json ~/.config/zed/settings.json
 
 ## Scripts
 
