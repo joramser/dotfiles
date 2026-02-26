@@ -23,5 +23,6 @@ brew install raycast
 brew install --cask nikitabobko/tap/aerospace
 brew install zed
 brew install homerow
+brew install helium-browser
 
 brew install font-jetbrains-mono-nerd-font
