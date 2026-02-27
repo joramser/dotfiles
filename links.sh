@@ -17,3 +17,4 @@ mkdir -p ~/.config/tmux && ln -sf $(pwd)/.config/tmux/tmux.conf ~/.config/tmux/t
 mkdir -p ~/bin
 ln -sf $(pwd)/bin/wsw ~/bin/wsw
 ln -sf $(pwd)/bin/wss ~/bin/wss
+ln -sf $(pwd)/bin/tmux-session-picker ~/bin/tmux-session-picker

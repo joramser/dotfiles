@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Editor directories and files
+.idea/
+*.swp
+*.swo
+*~
+
+# Local environment / secrets
+.env
+.env.local
+.zshrc.local
+
+# Temporary files
+*.tmp
+*.log

@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+priority=("default")
+
+current_session=$(tmux display-message -p '#S')
+sessions=$(tmux list-sessions -F '#S')
+all_windows=$(tmux list-windows -a -F '#{session_name}	#I	#{window_name}')
+
+sorted=""
+rest=""
+
+while IFS= read -r s; do
+  [[ -z "$s" ]] && continue
+  skip=false
+  for p in "${priority[@]}"; do
+    [[ "$s" == "$p" ]] && skip=true && break
+  done
+  $skip || rest+="$s"$'\n'
+done <<< "$sessions"
+
+for p in "${priority[@]}"; do
+  while IFS= read -r s; do
+    [[ "$s" == "$p" ]] && sorted+="$p"$'\n' && break
+  done <<< "$sessions"
+done
+
+sorted+=$(echo -n "$rest" | sort)
+
+TAB=$'\t'
+i=0
+line_num=1
+lines=""
+binds=""
+
+while IFS= read -r s; do
+  [[ -z "$s" ]] && continue
+  if [[ "$s" == "$current_session" ]]; then
+    lines+="→ $i  $s${TAB}$s"$'\n'
+  else
+    lines+="  $i  $s${TAB}$s"$'\n'
+  fi
+  if ((i < 10)); then
+    binds+="$i:pos($line_num)+accept,"
+  fi
+  ((i++))
+  ((line_num++))
+  while IFS=$'\t' read -r sess win_idx win_name; do
+    [[ "$sess" == "$s" ]] && lines+="     └ ${win_idx}: ${win_name}${TAB}$s:$win_idx"$'\n' && ((line_num++))
+  done <<< "$all_windows"
+done <<< "$sorted"
+
+binds=${binds%,}
+
+selected=$(echo "$lines" | sed '/^$/d' |
+  fzf --no-sort --layout=reverse --prompt=" session> " \
+    --delimiter='\t' --with-nth=1 \
+    --bind "$binds" |
+  cut -f2)
+
+if [[ -n "$selected" ]]; then
+  tmux switch-client -t "$selected"
+fi
