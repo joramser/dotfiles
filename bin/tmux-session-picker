@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
 priority=("default")
+show_windows=${TMUX_PICKER_SHOW_WINDOWS:-0}
 
 current_session=$(tmux display-message -p '#S')
 sessions=$(tmux list-sessions -F '#S')
-all_windows=$(tmux list-windows -a -F '#{session_name}	#I	#{window_name}')
+
+if [[ "$show_windows" == "1" ]]; then
+  all_windows=$(tmux list-windows -a -F '#{session_name}	#I	#{window_name}')
+fi
 
 sorted=""
 rest=""
@@ -44,9 +48,11 @@ while IFS= read -r s; do
   fi
   ((i++))
   ((line_num++))
-  while IFS=$'\t' read -r sess win_idx win_name; do
-    [[ "$sess" == "$s" ]] && lines+="     └ ${win_idx}: ${win_name}${TAB}$s:$win_idx"$'\n' && ((line_num++))
-  done <<< "$all_windows"
+  if [[ "$show_windows" == "1" ]]; then
+    while IFS=$'\t' read -r sess win_idx win_name; do
+      [[ "$sess" == "$s" ]] && lines+="     └ ${win_idx}: ${win_name}${TAB}$s:$win_idx"$'\n' && ((line_num++))
+    done <<< "$all_windows"
+  fi
 done <<< "$sorted"
 
 binds=${binds%,}
