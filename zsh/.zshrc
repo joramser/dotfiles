@@ -21,6 +21,9 @@ eval "$(fzf --zsh)"
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
+# Common
+alias zz="zed ."
+
 # Eza
 alias ls="eza --almost-all --icons=always --oneline"
 alias la="eza --almost-all --icons=always --long --git"
@@ -33,3 +36,6 @@ alias tmx="tmux new-session -A -s default"
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# Local configuration
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
