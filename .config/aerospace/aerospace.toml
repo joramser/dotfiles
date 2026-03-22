@@ -244,20 +244,16 @@ if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Slack'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
 if.app-name-regex-substring = 'Mail|Messages|Notes|Reminders|Calendar|Photos'
 run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
-if.app-id = 'com.spotify.client'
+if.app-name-regex-substring = 'Spotify'
 run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
-if.app-id = 'com.spotify.Music'
-run = 'move-node-to-workspace 7'
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace 9'
 
 [[on-window-detected]]
 if.app-id = 'net.imput.helium'
@@ -266,7 +262,3 @@ run = 'move-node-to-workspace 10'
 [[on-window-detected]]
 if.app-name-regex-substring = 'Passwords|Terminal'
 run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.openai.chat'
-run = 'move-node-to-workspace 9'
