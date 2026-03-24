@@ -39,9 +39,9 @@ binds=""
 while IFS= read -r s; do
   [[ -z "$s" ]] && continue
   if [[ "$s" == "$current_session" ]]; then
-    lines+="→ $i  $s${TAB}$s"$'\n'
+    lines+="\033[1;38;5;208m→ $i  $s\033[0m${TAB}$s"$'\n'
   else
-    lines+="  $i  $s${TAB}$s"$'\n'
+    lines+="\033[34m  $i  $s\033[0m${TAB}$s"$'\n'
   fi
   if ((i < 10)); then
     binds+="$i:pos($line_num)+accept,"
@@ -57,8 +57,8 @@ done <<< "$sorted"
 
 binds=${binds%,}
 
-selected=$(echo "$lines" | sed '/^$/d' |
-  fzf --no-sort --layout=reverse --prompt=" session> " \
+selected=$(echo -e "$lines" | sed '/^$/d' |
+  fzf --ansi --no-sort --layout=reverse --prompt=" session> " \
     --delimiter='\t' --with-nth=1 \
     --bind "$binds" |
   cut -f2)
