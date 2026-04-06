@@ -26,3 +26,4 @@ brew install homerow
 brew install helium-browser
 
 brew install font-jetbrains-mono-nerd-font
+brew install font-iosevka
