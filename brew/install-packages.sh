@@ -1,7 +1,7 @@
 echo "Installing brew packages..."
 
 brew install oven-sh/bun/bun
-brew install nvm
+brew install fnm
 brew install zsh-autosuggestions
 brew install zsh-fast-syntax-highlighting
 
