@@ -12,9 +12,9 @@ mkdir -p ~/.config/tmux && ln -sf $(pwd)/.config/tmux/tmux.conf ~/.config/tmux/t
 ## Editors
 ln -sf $(pwd)/vscode/vscode-settings.json ~/Library/"Application Support"/Code/User/settings.json
 mkdir -p ~/.config/zed && ln -sf $(pwd)/.config/zed/settings.json ~/.config/zed/settings.json
+mkdir -p ~/.config/zed && ln -sf $(pwd)/.config/zed/keymap.json ~/.config/zed/keymap.json
 
 ## Scripts
-
 mkdir -p ~/bin
 ln -sf $(pwd)/bin/wsw ~/bin/wsw
 ln -sf $(pwd)/bin/wss ~/bin/wss
