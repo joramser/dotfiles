@@ -3,15 +3,22 @@
 	name = Jorge Ramírez Serrato
 [pull]
 	rebase = true
+[push]
+	autoSetupRemote = true
 [alias]
 	co = checkout
 	br = branch
 	ci = commit
 	st = status
 	amend = commit --amend --no-edit
-	up = push -u origin HEAD
 	staged = diff --cached . ':(exclude)*lock*'
 [core]
 	editor = zed --wait
+    pager = delta
 [credential]
 	helper = osxkeychain
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    side-by-side = true
