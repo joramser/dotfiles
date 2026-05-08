@@ -13,7 +13,6 @@ brew install fzf
 brew install eza
 brew install gh
 brew install zoxide
-brew install git-delta
 brew install fastfetch
 
 # Casks
