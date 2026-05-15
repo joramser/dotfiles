@@ -14,6 +14,7 @@ brew install eza
 brew install gh
 brew install zoxide
 brew install fastfetch
+brew install modem-dev/tap/hunk
 
 # Casks
 

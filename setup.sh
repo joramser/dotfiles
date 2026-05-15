@@ -11,9 +11,6 @@ git clone https://github.com/joramser/dotfiles.git ~/Projects/jorge/dotfiles
 echo "Installing Homebrew packages..."
 sh ~/Projects/jorge/dotfiles/brew/install-packages.sh
 
-echo "Installing bun global packages..."
-sh ~/Projects/jorge/dotfiles/bun/install-packages.sh
-
 echo "Installing VSCode extensions..."
 sh ~/Projects/jorge/dotfiles/vscode/install-extensions.sh
 
