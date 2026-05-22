@@ -8,8 +8,8 @@ echo "Installing dotfiles..."
 mkdir -p ~/Projects/jorge/dotfiles
 git clone https://github.com/joramser/dotfiles.git ~/Projects/jorge/dotfiles
 
-echo "Installing Homebrew packages..."
-sh ~/Projects/jorge/dotfiles/brew/install-packages.sh
+echo "Installing packages..."
+sh ~/Projects/jorge/dotfiles/install-packages.sh
 
 echo "Installing VSCode extensions..."
 sh ~/Projects/jorge/dotfiles/vscode/install-extensions.sh

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 priority=("default")
+hidden=("gh-dash")
 
 current_session=$(tmux display-message -p '#S')
 sessions=$(tmux list-sessions -F '#S')
@@ -15,10 +16,18 @@ while IFS= read -r s; do
   for p in "${priority[@]}"; do
     [[ "$s" == "$p" ]] && skip=true && break
   done
+  for h in "${hidden[@]}"; do
+    [[ "$s" == "$h" ]] && skip=true && break
+  done
   $skip || rest+="$s"$'\n'
 done <<< "$sessions"
 
 for p in "${priority[@]}"; do
+  hide=false
+  for h in "${hidden[@]}"; do
+    [[ "$p" == "$h" ]] && hide=true && break
+  done
+  $hide && continue
   while IFS= read -r s; do
     [[ "$s" == "$p" ]] && sorted+="$p"$'\n' && break
   done <<< "$sessions"
@@ -29,12 +38,14 @@ sorted+=$(echo -n "$rest" | sort)
 TAB=$'\t'
 i=0
 line_num=1
+current_line=1
 lines=""
 binds=""
 
 while IFS= read -r s; do
   [[ -z "$s" ]] && continue
   if [[ "$s" == "$current_session" ]]; then
+    current_line=$line_num
     lines+="\033[1;38;5;208m→ $i  $s\033[0m${TAB}$s"$'\n'
   else
     lines+="\033[34m  $i  $s\033[0m${TAB}$s"$'\n'
@@ -54,7 +65,7 @@ binds=${binds%,}
 selected=$(echo -e "$lines" | sed '/^$/d' |
   fzf --ansi --no-sort --layout=reverse --prompt=" session> " \
     --delimiter='\t' --with-nth=1 \
-    --bind "$binds" |
+    --bind "load:pos($current_line)" --bind "$binds" |
   cut -f2)
 
 if [[ -n "$selected" ]]; then

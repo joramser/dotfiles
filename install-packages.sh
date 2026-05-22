@@ -16,8 +16,6 @@ brew install zoxide
 brew install fastfetch
 brew install modem-dev/tap/hunk
 
-# Casks
-
 brew install zed
 brew install ghostty
 brew install raycast
@@ -27,3 +25,7 @@ brew install helium-browser
 
 brew install font-jetbrains-mono-nerd-font
 brew install font-iosevka
+
+echo "Installing gh extensions..."
+
+gh extension install dlvhdr/gh-dash
