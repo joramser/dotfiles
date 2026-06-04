@@ -35,4 +35,4 @@ git remote set-url origin git@github.com:joramser/dotfiles.git
 cd $HOME
 
 echo "Configuring macOS settings..."
-sh ~/Projects/jorge/dotfiles/macos.sh
+sh ~/Projects/jorge/dotfiles/macos/setup.sh

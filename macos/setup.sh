@@ -1,5 +1,7 @@
 # Configure macOS settings
 
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 ## Screenshots folder
 mkdir ~/Screenshots
 defaults write com.apple.screencapture location ~/Screenshots
@@ -25,6 +27,11 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 ## Hotkeys
 defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64 "{enabled = 0;}" # Disable Spotlight
+
+## Keyboard — remap Caps Lock to Control (persistent via LaunchAgent)
+mkdir -p ~/Library/LaunchAgents
+cp "$DOTFILES_DIR/LaunchAgents/com.local.KeyRemapping.plist" ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.local.KeyRemapping.plist
 
 ## Trackpad
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
