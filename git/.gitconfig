@@ -3,6 +3,7 @@
 	name = Jorge Ramírez Serrato
 [pull]
 	rebase = true
+	autostash = true
 [push]
 	autoSetupRemote = true
 [alias]
