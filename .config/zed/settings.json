@@ -11,10 +11,17 @@
   "relative_line_numbers": "enabled",
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "Matte Black",
+    "light": "Dayfox - blurred",
+    "dark": "Duskfox - blurred",
   },
-  "icon_theme": "Colored Zed Icons Theme Dark",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Symbols Icon Theme",
+    "dark": "Symbols Icon Theme",
+  },
+  "tabs": {
+    "file_icons": true,
+  },
   "terminal": {
     "font_family": "Iosevka Term",
   },
