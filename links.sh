@@ -11,7 +11,6 @@ mkdir -p ~/.config/herdr && ln -sf $(pwd)/.config/herdr/config.toml ~/.config/he
 mkdir -p ~/.config/tmux && ln -sf $(pwd)/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 
 ## Editors
-ln -sf $(pwd)/vscode/vscode-settings.json ~/Library/"Application Support"/Code/User/settings.json
 mkdir -p ~/.config/zed && ln -sf $(pwd)/.config/zed/settings.json ~/.config/zed/settings.json
 mkdir -p ~/.config/zed && ln -sf $(pwd)/.config/zed/keymap.json ~/.config/zed/keymap.json
 
