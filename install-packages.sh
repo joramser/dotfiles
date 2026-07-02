@@ -7,6 +7,7 @@ brew install zsh-fast-syntax-highlighting
 
 brew install tmux
 brew install tpm
+brew install herdr
 brew install starship
 brew install bat
 brew install fzf
