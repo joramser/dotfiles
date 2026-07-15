@@ -2,6 +2,10 @@ export PATH="$HOME/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
 
+## Completions
+FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+autoload -Uz compinit && compinit
+
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
