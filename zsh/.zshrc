@@ -1,7 +1,3 @@
-export ZSH="$HOME/.oh-my-zsh"
-
-plugins=(git)
-
 export PATH="$HOME/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
