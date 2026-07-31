@@ -227,10 +227,6 @@ shift-down = ['volume set 0', 'mode main']
 # Default windows
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
 run = 'move-node-to-workspace 1'
 
@@ -251,11 +247,11 @@ if.app-name-regex-substring = 'Mail|Messages|Notes|Reminders|Calendar|Photos'
 run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Spotify'
+if.app-name-regex-substring = 'Spotify|Music'
 run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
-if.app-id = 'com.anthropic.claudefordesktop'
+if.app-name-regex-substring = 'ChatGPT|Claude'
 run = 'move-node-to-workspace 9'
 
 [[on-window-detected]]
