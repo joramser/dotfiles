@@ -6,9 +6,9 @@ export PATH="$HOME/.bun/bin:$PATH"
 FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
 autoload -Uz compinit && compinit
 
+eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
-eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(zoxide init zsh)"
 
 ## Common

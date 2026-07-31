@@ -8,6 +8,12 @@ echo "Installing dotfiles..."
 mkdir -p ~/Projects/jorge/dotfiles
 git clone https://github.com/joramser/dotfiles.git ~/Projects/jorge/dotfiles
 
+echo "Linking dotfiles"
+cd ~/Projects/jorge/dotfiles
+sh links.sh
+git remote set-url origin git@github.com:joramser/dotfiles.git
+cd $HOME
+
 echo "Installing packages..."
 sh ~/Projects/jorge/dotfiles/install-packages.sh
 
@@ -27,12 +33,6 @@ echo "  IdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 gh auth login
 git clone ssh://git@github.com/joramser/website.git ~/Projects/jorge/website
-
-echo "Linking dotfiles"
-cd ~/Projects/jorge/dotfiles
-sh links.sh
-git remote set-url origin git@github.com:joramser/dotfiles.git
-cd $HOME
 
 echo "Configuring macOS settings..."
 sh ~/Projects/jorge/dotfiles/macos/setup.sh

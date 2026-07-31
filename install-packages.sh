@@ -1,7 +1,7 @@
 echo "Installing brew packages..."
 
 brew install oven-sh/bun/bun
-brew install fnm
+brew install mise
 brew install zsh-autosuggestions
 brew install zsh-fast-syntax-highlighting
 
@@ -26,6 +26,10 @@ brew install helium-browser
 
 brew install font-jetbrains-mono-nerd-font
 brew install font-iosevka
+
+echo "Installing mise-managed Node.js..."
+
+mise install
 
 echo "Installing gh extensions..."
 
