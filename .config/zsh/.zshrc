@@ -2,9 +2,21 @@ export PATH="$HOME/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
 
+## Zsh
+mkdir -p "$XDG_CACHE_HOME/zsh" "$XDG_STATE_HOME/zsh"
+
+HISTFILE="$XDG_STATE_HOME/zsh/history"
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt append_history
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+
 ## Completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
@@ -33,4 +45,4 @@ source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlight
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Local configuration
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -f "$ZDOTDIR/local.zsh" ]] && source "$ZDOTDIR/local.zsh"
