@@ -40,5 +40,5 @@ link "$repo_dir/.config/zed/keymap.json" "$config_home/zed/keymap.json"
 # Scripts
 for script in "$repo_dir"/bin/*; do
   [ -f "$script" ] || continue
-  link "$script" "$HOME/bin/$(basename "$script")"
+  link "$script" "$HOME/.local/bin/$(basename "$script")"
 done
