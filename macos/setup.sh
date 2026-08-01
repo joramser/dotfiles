@@ -1,16 +1,17 @@
-# Configure macOS settings
+#!/usr/bin/env sh
+set -eu
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 ## Screenshots folder
-mkdir ~/Screenshots
-defaults write com.apple.screencapture location ~/Screenshots
+mkdir -p "$HOME/Screenshots"
+defaults write com.apple.screencapture location "$HOME/Screenshots"
 
 ## Dock
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock expose-group-apps -bool true
-defaults delete com.apple.dock persistent-apps;
+defaults delete com.apple.dock persistent-apps 2>/dev/null || true
 
 ## Finder
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
@@ -29,9 +30,13 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64 "{enabled = 0;}" # Disable Spotlight
 
 ## Keyboard — remap Caps Lock to Control (persistent via LaunchAgent)
-mkdir -p ~/Library/LaunchAgents
-cp "$DOTFILES_DIR/LaunchAgents/com.local.KeyRemapping.plist" ~/Library/LaunchAgents/
-launchctl load ~/Library/LaunchAgents/com.local.KeyRemapping.plist
+launch_agent_dir="$HOME/Library/LaunchAgents"
+launch_agent_path="$launch_agent_dir/com.local.KeyRemapping.plist"
+
+mkdir -p "$launch_agent_dir"
+launchctl bootout "gui/$(id -u)" "$launch_agent_path" >/dev/null 2>&1 || true
+cp "$DOTFILES_DIR/LaunchAgents/com.local.KeyRemapping.plist" "$launch_agent_path"
+launchctl bootstrap "gui/$(id -u)" "$launch_agent_path"
 
 ## Trackpad
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
@@ -49,8 +54,6 @@ defaults write com.apple.controlcenter.plist BatteryShowPercentage -bool true
 # Safari
 defaults write com.apple.Safari WebKitDeveloperExtras -bool true
 
-killall SystemUIServer
-killall Dock
-killall Finder
-killall ControlCenter
-killall Safari
+for process in SystemUIServer Dock Finder ControlCenter Safari; do
+  killall "$process" 2>/dev/null || true
+done
