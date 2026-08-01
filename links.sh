@@ -26,7 +26,7 @@ link() {
 # Config files
 link "$repo_dir/.config/zsh/.zshenv" "$HOME/.zshenv"
 link "$repo_dir/.config/zsh/.zshrc" "$config_home/zsh/.zshrc"
-link "$repo_dir/git/.gitconfig" "$HOME/.gitconfig"
+link "$repo_dir/.config/git/config" "$config_home/git/config"
 link "$repo_dir/.config/aerospace/aerospace.toml" "$config_home/aerospace/aerospace.toml"
 link "$repo_dir/.config/ghostty/config" "$config_home/ghostty/config"
 link "$repo_dir/.config/herdr/config.toml" "$config_home/herdr/config.toml"
