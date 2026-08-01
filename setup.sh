@@ -1,24 +1,25 @@
-# Script to setup a new machine
+#!/usr/bin/env sh
+set -eu
 
-echo "Installing Homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+repo_dir=$(cd "$(dirname "$0")" && pwd)
 
-echo "Installing dotfiles..."
-mkdir -p ~/Projects/jorge/dotfiles
-git clone https://github.com/joramser/dotfiles.git ~/Projects/jorge/dotfiles
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -x /usr/local/bin/brew ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 echo "Linking dotfiles"
-cd ~/Projects/jorge/dotfiles
-sh links.sh
-git remote set-url origin git@github.com:joramser/dotfiles.git
-cd $HOME
+"$repo_dir/links.sh"
+git -C "$repo_dir" remote set-url origin git@github.com:joramser/dotfiles.git
 
 echo "Installing packages..."
-sh ~/Projects/jorge/dotfiles/install-packages.sh
-
-echo "Installing VSCode extensions..."
-sh ~/Projects/jorge/dotfiles/vscode/install-extensions.sh
+sh "$repo_dir/install-packages.sh"
 
 echo "Generating SSH keys for github.com..."
 ssh-keygen -t ed25519 -C "jramirezserrato@gmail.com"
@@ -32,4 +33,4 @@ gh auth login
 git clone ssh://git@github.com/joramser/website.git ~/Projects/jorge/website
 
 echo "Configuring macOS settings..."
-sh ~/Projects/jorge/dotfiles/macos/setup.sh
+sh "$repo_dir/macos/setup.sh"
