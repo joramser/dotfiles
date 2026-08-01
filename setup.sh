@@ -20,9 +20,6 @@ sh ~/Projects/jorge/dotfiles/install-packages.sh
 echo "Installing VSCode extensions..."
 sh ~/Projects/jorge/dotfiles/vscode/install-extensions.sh
 
-echo "Installing Oh My Zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 echo "Generating SSH keys for github.com..."
 ssh-keygen -t ed25519 -C "jramirezserrato@gmail.com"
 touch ~/.ssh/config
