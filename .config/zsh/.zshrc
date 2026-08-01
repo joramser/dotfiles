@@ -1,5 +1,4 @@
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
 
 ## Zsh
@@ -14,14 +13,16 @@ setopt share_history
 setopt hist_ignore_dups
 setopt hist_ignore_space
 
-## Completions
-FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
-autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
-
+## Integrations
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+
+## Completions
+FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH"
+autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 
 ## Common
 alias zz="zed ."
@@ -38,8 +39,8 @@ alias f="fzf --height=60% --layout=reverse --border --preview 'bat --color=alway
 ## tmux
 alias tmx="tmux new-session -A -s default"
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 
 # Bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
