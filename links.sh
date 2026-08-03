@@ -23,19 +23,24 @@ link() {
   ln -sfn "$source_file" "$destination"
 }
 
+config() {
+  path=$1
+  link "$repo_dir/.config/$path" "$config_home/$path"
+}
+
 # Config files
 link "$repo_dir/.config/zsh/.zshenv" "$HOME/.zshenv"
-link "$repo_dir/.config/zsh/.zshrc" "$config_home/zsh/.zshrc"
-link "$repo_dir/.config/git/config" "$config_home/git/config"
-link "$repo_dir/.config/aerospace/aerospace.toml" "$config_home/aerospace/aerospace.toml"
-link "$repo_dir/.config/ghostty/config" "$config_home/ghostty/config"
-link "$repo_dir/.config/herdr/config.toml" "$config_home/herdr/config.toml"
-link "$repo_dir/.config/mise/config.toml" "$config_home/mise/config.toml"
-link "$repo_dir/.config/tmux/tmux.conf" "$config_home/tmux/tmux.conf"
+config "zsh/.zshrc"
+config "git/config"
+config "aerospace/aerospace.toml"
+config "ghostty/config"
+config "herdr/config.toml"
+config "mise/config.toml"
+config "tmux/tmux.conf"
 
 # Editors
-link "$repo_dir/.config/zed/settings.json" "$config_home/zed/settings.json"
-link "$repo_dir/.config/zed/keymap.json" "$config_home/zed/keymap.json"
+config "zed/settings.json"
+config "zed/keymap.json"
 
 # Scripts
 for script in "$repo_dir"/bin/*; do
