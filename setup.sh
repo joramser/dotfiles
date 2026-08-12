@@ -8,6 +8,9 @@ if ! command -v brew >/dev/null 2>&1; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+# zsh's compinit rejects completion paths writable by group or others.
+chmod go-w "$HOMEBREW_PREFIX/share"
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "Linking dotfiles"
