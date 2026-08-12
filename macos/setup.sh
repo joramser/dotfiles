@@ -13,6 +13,10 @@ defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock expose-group-apps -bool true
 defaults delete com.apple.dock persistent-apps 2>/dev/null || true
 
+## Desktop
+defaults write com.apple.WindowManager StandardHideWidgets -bool true
+defaults write com.apple.WindowManager StageManagerHideWidgets -bool true
+
 ## Finder
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
@@ -22,6 +26,8 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+defaults write com.apple.finder ShowRecentTags -bool false
+defaults write com.apple.finder SidebarTagsSctionDisclosedState -bool false
 defaults write com.apple.finder FinderSpawnTab -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
@@ -45,14 +51,16 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -i
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -bool true
 
 ## Control Center
 defaults write com.apple.controlcenter.plist BatteryShowPercentage -bool true
+defaults write com.apple.Spotlight "NSStatusItem VisibleCC Item-0" -bool false
 
-# Safari
-defaults write com.apple.Safari WebKitDeveloperExtras -bool true
+## Per-host settings
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -bool true
+defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
+defaults -currentHost write com.apple.controlcenter Weather -int 2
 
 for process in SystemUIServer Dock Finder ControlCenter Safari; do
   killall "$process" 2>/dev/null || true
