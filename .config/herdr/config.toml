@@ -1,7 +1,7 @@
 onboarding = false
 
 [theme]
-name = "tokyo-night"
+name = "dracula"
 
 [ui]
 show_agent_labels_on_pane_borders = true
@@ -24,5 +24,8 @@ previous_agent = "prefix+shift+a"
 
 [[keys.command]]
 key = "prefix+shift+g"
-type = "pane"
+type = "popup"
 command = "gh dash"
+description = "github dashboard"
+width = "90%"
+height = "90%"
