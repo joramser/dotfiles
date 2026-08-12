@@ -11,9 +11,11 @@ brew install starship
 brew install bat
 brew install fzf
 brew install eza
-brew install gh
+brew install ripgrep
 brew install zoxide
 brew install fastfetch
+brew install gh
+brew install btop
 brew install modem-dev/tap/hunk
 
 brew install zed
