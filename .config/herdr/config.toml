@@ -1,11 +1,17 @@
 onboarding = false
 
 [theme]
-name = "dracula"
+name = "rose-pine"
+
+[terminal]
+new_cwd = "follow"
 
 [ui]
 show_agent_labels_on_pane_borders = true
 agent_panel_sort = "spaces"
+prompt_new_tab_name = false
+confirm_close = false
+tab_bar_right = [{ type = "zoom" }, { type = "hostname" }]
 
 [ui.sound]
 enabled = false
@@ -18,9 +24,9 @@ prefix = "ctrl+a"
 split_vertical = "prefix+|"
 workspace_picker = "prefix+s"
 settings = "prefix+shift+s"
-new_worktree = "prefix+w"
 next_agent = "prefix+a"
 previous_agent = "prefix+shift+a"
+last_pane = "prefix+;"
 
 [[keys.command]]
 key = "prefix+shift+g"
