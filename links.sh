@@ -35,6 +35,7 @@ config "git/config"
 config "aerospace/aerospace.toml"
 config "ghostty/config"
 config "herdr/config.toml"
+config "homebrew/trust.json"
 config "mise/config.toml"
 config "tmux/tmux.conf"
 
