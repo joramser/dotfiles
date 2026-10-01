@@ -35,7 +35,7 @@ default-root-container-orientation = 'auto'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = [
     'move-mouse window-lazy-center',
-    'test %{monitor-name} ~= built-in && layout --root accordion || layout --root tiles',
+    'exec-and-forget $HOME/.local/bin/aerospace-default-layout',
 ]
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag

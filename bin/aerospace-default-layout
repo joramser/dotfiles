@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+# aerospace-default-layout — set a workspace's default layout when it lands on a monitor
+# Accordion on the built-in screen, tiles elsewhere. Runs from on-focus-changed, but only
+# acts when the workspace's monitor differs from last time, so manual toggles stick.
+# State is keyed on AeroSpace's PID, so restarting AeroSpace resets it.
+
+state="${TMPDIR:-/tmp}/aerospace-layout.$(pgrep -ax AeroSpace)"
+workspace=$(aerospace list-workspaces --focused)
+monitor=$(aerospace list-monitors --focused)
+
+[ "$(cat "$state/$workspace" 2>/dev/null)" = "$monitor" ] && exit 0
+
+case "$monitor" in
+  *[Bb]uilt-in*) layout=accordion ;;
+  *) layout=tiles ;;
+esac
+
+mkdir -p "$state"
+aerospace layout --root "$layout" && echo "$monitor" > "$state/$workspace"
